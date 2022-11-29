@@ -1,4 +1,4 @@
-.relogioNumero {
+.clock-number {
   background-color: #5d677c;
   box-shadow: 2px 2px 4px #2b2b2b inset;
   height: 3.6rem;
@@ -12,7 +12,7 @@
   }
 }
 
-.relogioDivisao {
+.clock-divider {
   height: 4.2rem;
 
   @media screen and (min-width: 1280px) {

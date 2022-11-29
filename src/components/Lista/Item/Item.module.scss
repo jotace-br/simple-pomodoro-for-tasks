@@ -21,16 +21,16 @@
   }
 }
 
-.itemSelecionado {
+.selected-item {
   background-color: #292929;
   box-shadow: 2px 4px 4px #0000009f inset;
 }
 
-.itemCompletado {
+.completed-item {
   background-color: #566f42;
   cursor: auto;
 
-  .concluido {
+  .finished {
     display: block;
     background-image: url('../../../assets/img/check-mark.svg');
     background-repeat: no-repeat;
