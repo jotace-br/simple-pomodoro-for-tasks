@@ -1,33 +1,33 @@
-import { ITarefa } from '../../../types/tarefa';
+import { ITask } from '../../../types/ITask';
 import style from './Item.module.scss';
 
-interface Props extends ITarefa {
-  selecionaTarefa: (tarefaSelecionada: ITarefa) => void;
+interface ItemProps extends ITask {
+  selectTask: (selectedTask: ITask) => void;
 }
 
-export default function Item({
-  tarefa,
-  tempo,
-  selecionado,
-  completado,
+export const Item = ({
+  task,
+  time,
+  selected,
+  completed,
   id,
-  selecionaTarefa,
-}: Props) {
+  selectTask,
+}: ItemProps) => {
+  const handleSelectTask = () =>
+    !completed && selectTask({ task, time, selected, completed, id });
+
   return (
     <li
-      onClick={() =>
-        !completado &&
-        selecionaTarefa({ tarefa, tempo, selecionado, completado, id })
-      }
-      className={`${style.item} ${selecionado ? style.itemSelecionado : ''} ${
-        completado ? style.itemCompletado : ''
+      className={`${style.item} ${selected ? style['selected-item'] : ''} ${
+        completed ? style['completed-item'] : ''
       }`}
+      onClick={handleSelectTask}
     >
-      <h3>{tarefa}</h3>
-      <span>{tempo}</span>
-      {completado && (
-        <span className={style.concluido} aria-label='tarefa-completada'></span>
+      <h3>{task}</h3>
+      <span>{time}</span>
+      {completed && (
+        <span className={style.finished} aria-label='completed-task'></span>
       )}
     </li>
   );
-}
+};
